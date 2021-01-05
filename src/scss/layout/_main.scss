@@ -1,0 +1,186 @@
+.app__content {
+    // overflow: hidden;
+    @include flexCenter(column);
+    position: relative;
+    height: 100%;
+    width: 90%;
+    z-index: 999;
+    .content__header {
+        @include flexCenter(column);
+        height: 100px;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        .header__search__container {
+            @include flexCenter(column);
+            width: 100%;
+            
+        }
+        
+    }
+    .header__title {
+        @include generalTitle();
+        span {
+            font-weight: $w_regular;
+            transition: all 0.5s;
+            &:hover {
+                color: $orange
+            }
+            --border-width: 0.2rem;
+            --animation-speed: 0.2s;
+            border: var(--border-width) solid transparent;
+            &:focus:before,
+            &:hover:before {
+                animation: beforeBorders var(--animation-speed) forwards ease-in-out;
+            }
+            &:focus:after,
+            &:hover:after {
+                animation: afterBorders var(--animation-speed) forwards ease-in-out;
+            }
+            &:hover {
+                animation: borderColors var(--animation-speed)  forwards;
+                outline: none;
+            }
+            }
+    }
+    
+    .content__container {
+        @include flexCenter(column);
+        margin: 110px 0 90px 0;
+        width: 100%;
+        // position: relative;
+    }
+}
+
+.home__title {
+    font-size: 5rem;
+    font-weight: $w_thin;
+    text-align: center;
+    line-height: 7.5rem;
+    margin-bottom: 2rem;
+    padding: 0 2rem;
+    cursor: default;
+    & span {
+        font-weight: $w_bold;
+        --border-width: 0.5rem;
+        --animation-speed: 0.15s;
+        border: var(--border-width) solid transparent;
+        &:focus:before,
+        &:hover:before {
+            animation: beforeBorders var(--animation-speed) forwards ease-in-out;
+        }
+        &:focus:after,
+        &:hover:after {
+            animation: afterBorders var(--animation-speed) forwards ease-in-out;
+        }
+        &:hover {
+            animation: borderColors var(--animation-speed)  forwards;
+            outline: none;
+        }
+    }
+}
+
+.app__subtitle {
+    color: $gray;
+    font-size: 1.2rem;
+    font-weight: $w_regular;
+}
+
+
+@keyframes beforeBorders {
+  0% {
+    top: calc(var(--border-width) * -1);
+    left: 50%;
+    bottom: auto;
+    right: auto;
+    width: 0;
+    height: var(--border-width);
+  }
+  33% {    
+    top: calc(var(--border-width) * -1);
+    left: calc(var(--border-width) * -1);
+    bottom: auto;
+    right: auto;
+    width: calc(var(--border-width) + 50%);
+    height: var(--border-width);
+  }
+  66% {
+    top: calc(var(--border-width) * -1);
+    left: calc(var(--border-width) * -1);
+    bottom: auto;
+    right: auto;
+    width: var(--border-width);
+    height: calc((var(--border-width) * 2) + 100%);
+  }
+  100% {
+    top: auto;
+    left: calc(var(--border-width) * -1);
+    bottom: calc(var(--border-width) * -1);
+    right: auto;
+    width: calc(var(--border-width) + 50%);
+    height: calc((var(--border-width) * 2) + 100%);
+  }
+}
+
+@keyframes afterBorders {
+  0% {
+    top: calc(var(--border-width) * -1);
+    left: auto;
+    bottom: auto;
+    right: 50%;
+    width: 0;
+    height: var(--border-width);
+  }
+  33% {    
+    top: calc(var(--border-width) * -1);
+    left: auto;
+    bottom: auto;
+    right: calc(var(--border-width) * -1);
+    width: calc(var(--border-width) + 50%);
+    height: var(--border-width);
+  }
+  66% {
+    top: calc(var(--border-width) * -1);
+    left: auto;
+    bottom: auto;
+    right: calc(var(--border-width) * -1);
+    width: var(--border-width);
+    height: calc((var(--border-width) * 2) + 100%);
+  }
+  100% {
+    top: auto;
+    left: auto;
+    bottom: calc(var(--border-width) * -1);
+    right: calc(var(--border-width) * -1);
+    width: calc(var(--border-width) + 50%);
+    height: calc((var(--border-width) * 2) + 100%);
+  }
+}
+
+@keyframes borderColors {
+  0% {
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+  }
+  33% {
+    border-top-color: $orange;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+
+  }
+  66% {
+    border-top-color: $orange;
+    border-right-color: $orange;
+    border-bottom-color: transparent;
+    border-left-color: $orange;
+  }
+  100% {
+    border-top-color: $orange;
+    border-right-color: $orange;
+    border-bottom-color: $orange;
+    border-left-color: $orange;
+  }
+}

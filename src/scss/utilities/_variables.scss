@@ -1,0 +1,38 @@
+$white: #F9F9F9;
+$black: #0A0A0B;
+$gray: #61636B;
+$orange: #EA680B;
+$green: #1CC819;
+$red: #EB190A;
+
+$w_thin: 200;
+$w_light: 300;
+$w_regular: 400;
+$w_bold: 600;
+
+
+@mixin  flexCenter ($direction) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+}
+
+@mixin generalInput {
+    border-radius: 45px;
+    height: 3.5rem;
+    width: 80%;
+    padding: 1rem;
+    border: 1px solid;
+    outline: 0;
+    margin-top: 2rem;
+    cursor: pointer;
+    text-align: center;
+}
+
+@mixin generalTitle {
+    margin-top: 2rem;
+    font-size: 2.5rem;
+    font-weight: $w_thin;
+    text-align: center;
+}

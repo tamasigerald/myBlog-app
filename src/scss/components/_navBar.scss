@@ -1,0 +1,116 @@
+.nav {
+    &__logo {
+        text-decoration: none;
+        font-size: 3rem;
+        font-weight: $w_bold;
+        color: $black;
+        transition: all 0.2s;
+            &:hover {
+                color: $orange
+            }
+    }
+    &__menu {
+    //   overflow: hidden;
+      position: absolute;
+      z-index: 9999;
+      right: 0;
+      background: $white;
+      top: 100px;
+      padding: 2rem;
+      text-align: center;
+      width: 100%;
+      transform: translate3d(100%, 0, 0);
+      transition: transform 250ms ease-in-out;
+      li {
+        opacity: 0;
+        list-style: none;
+        padding: 1rem 0;
+        font-weight: 400;
+        overflow: hidden;
+        letter-spacing: .05rem;
+        cursor: pointer;
+        transition: all 250ms ease-in-out;
+        a {
+            text-decoration: none;
+            display: inline-flex;
+            display: inline-flex;
+            color: $black;
+            font-size: 2rem;
+            height: 100%;
+            padding: 0.4rem;
+            transition: all 0.3s;
+            &:hover {
+                color: $orange;
+              // font-size: 2.2rem;
+                transform: translateY(-0.3rem);
+            }
+        }
+      }
+    }
+    
+    
+      &__burger {
+        display: flex;
+        width: 3.5rem;
+        height: 3rem;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        // border: 1px solid $black;
+        // border-radius: 3px;
+        padding: 0.5rem;
+        cursor: pointer;
+        transition: padding 100ms ease;
+        &.is-expanded {
+          padding: calc(1rem - 1px) 0.5rem;
+          
+          & + .nav__menu {
+            transform: translate3d(0, 0, 0);
+            
+            li {
+              opacity: 1;
+              @for $i from 1 through 5 {
+                &:nth-of-type(#{$i}) {
+                  transition-delay: #{$i * 25 + 250}ms;
+                } 
+              }
+            }
+          }
+        }
+      }
+      &__burger__line {
+        :hover > & {
+            background-color: $orange;
+        }
+        background-color: $black;
+        display: inline-block;
+        height: 2px;
+        width: 100%;
+        transition: all 100ms ease;
+        .nav__burger.is-expanded & {
+          &:nth-of-type(2) {
+            transform: rotate(-45deg);
+            position: relative;
+            // &::after {
+            //   content: "";
+            //   background: $black;
+            //   width: 100%;
+            //   height: 3px;
+            //   position: absolute;
+            //   display: inline-block;
+            //   transform: rotate(-90deg);
+            // }
+          }
+          &:first-of-type,
+          &:last-of-type {
+            opacity: 0;
+          }
+        }
+    
+    }
+}
+
+
+
+
+

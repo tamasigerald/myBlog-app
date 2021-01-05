@@ -1,0 +1,25 @@
+{
+  "name": "myBlog-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "start-webpack": "webpack --watch",
+    "start-json-server": "json-server --watch ./src/db/blog-database.json --port 3030",
+    "dev": "concurrently --kill-others \"npm run start-json-server\" \"npm run start-webpack\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "css-loader": "^5.0.1",
+    "json-server": "^0.16.3",
+    "sass": "^1.32.0",
+    "sass-loader": "^10.1.0",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.11.1"
+  }
+}

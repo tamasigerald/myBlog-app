@@ -1,0 +1,42 @@
+.header__search {
+    @include generalInput();
+    position: relative;
+    border-color: $black;
+    cursor: pointer;
+    transition: all 0.2s;
+    &:hover {
+        border-color: $orange;
+        // transform: translateY(-0.8rem);
+        box-shadow: 0 0.5rem 0.5rem -0.4rem $orange;
+        
+    }
+    &:focus {
+        border-color: $orange;
+        box-shadow: 0 0.5rem 1.2rem -0.4rem $orange;
+    }
+}
+
+.header__search__container {
+    position: relative;
+}
+
+.header__preditions {
+    position: absolute;
+    display: block;
+    top: 6.5rem;
+    // height: 20rem;
+    width: 100%;
+    overflow-y: scroll;
+    max-height: 20rem;
+    background-color: $white;
+    font-size: 1.3rem;
+    box-shadow: 0 0.5rem 1.8rem -0.4rem $orange;
+    
+    li {
+        padding: 0.8rem 2rem;
+        cursor: pointer;
+        &:hover {
+            background-color: $orange;
+        }
+    }
+}

@@ -1,0 +1,23 @@
+.content__btn {
+    position: absolute;
+    @include flexCenter(row);
+    bottom: 2rem;
+    border-radius: 45px;
+    width: 16rem;
+    height: 4.5rem;
+    // padding: 1rem 2.5rem;
+    border: 1px solid $black;
+    background-color: $white;
+    color: $black;
+    font-family: 'Poppins';
+    font-size: 2rem;
+    font-weight: $w-thin;
+    outline: 0;
+    cursor: pointer;
+    transition: all 0.2s;
+    &:hover {
+        border-color: $orange;
+        box-shadow: 0 0.5rem 0.5rem -0.4rem $orange;
+        transform: translateY(-0.8rem);
+    }
+}

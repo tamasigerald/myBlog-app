@@ -1,0 +1,17 @@
+* {
+    box-sizing: border-box;
+    
+}
+
+html, body {
+    font-size: 10px;
+    font-family: 'Poppins';
+    background-color: $white;
+    color: $black;
+}
+
+#app {
+    @include flexCenter(column);
+    overflow: hidden;
+    width: 100vw;
+}

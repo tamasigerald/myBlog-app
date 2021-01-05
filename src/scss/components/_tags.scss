@@ -1,0 +1,16 @@
+.tag__container {
+    @include flexCenter(column);
+    margin-top: 4rem;
+    font-size: 2rem;
+    width: 100%;
+    color: $black;
+    .tag__element {
+        padding: 1rem 0;
+        cursor: pointer;
+        transition: all 0.2s;
+            &:hover {
+                color: $orange;
+                transform: translateY(-0.3rem);
+            }
+    }
+}

@@ -1,0 +1,14 @@
+.app__header {
+    @include flexCenter(row);
+    position: relative;
+    height: 100px;
+    width: 100%;
+    border-bottom: 1px solid $gray;
+
+    .header__nav {
+        @include flexCenter(row);
+        justify-content: space-between;
+        height: 100%;
+        width: 80%;
+    }
+}

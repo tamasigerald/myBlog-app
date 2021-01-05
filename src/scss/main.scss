@@ -1,0 +1,15 @@
+@import './utilities/variables';
+@import './base/reset';
+@import './base/base';
+@import './utilities/breakpoints';
+
+@import './layout/header';
+@import './layout/main';
+@import './components/navBar';
+@import './components/mainBtn';
+@import './components/auxBtn';
+@import './components/search';
+@import './components/card';
+@import './components/tags';
+@import './components/form';
+@import './components/postView';
