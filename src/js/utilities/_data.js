@@ -12,9 +12,9 @@ let logState = {
 
 
 const urlsToFetch = {
-    "users": "http://localhost:3030/users",
-    "posts": "http://localhost:3030/posts",
-    "comments": "http://localhost:3030/comments"
+    "users": "https://gerald-myblog-api.herokuapp.com/users",
+    "posts": "https://gerald-myblog-api.herokuapp.com/posts",
+    "comments": "https://gerald-myblog-api.herokuapp.com/comments"
 }
 
 // Array of generates inputs
@@ -103,6 +103,10 @@ const inputElements = {
 // Array of generated links
 let links = {
     "logged": [{
+            "name": "add post",
+            "fn": ""
+        },
+        {
             "name": "my account",
             "fn": ""
         },

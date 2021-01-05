@@ -1,6 +1,7 @@
 import { auxBtn } from "../components/_auxBtn";
 import { mainBtn } from "../components/_mainBtn";
 import { postCards } from "../components/_postCard";
+import { scrollBtn } from "../components/_scrollBtn";
 import { search } from "../components/_search";
 import { urlsToFetch } from "../utilities/_data";
 import {
@@ -32,7 +33,7 @@ export const recentPosts = async (parent, posts) => {
     appendTo(parent, container$$);
     postCards(container$$, posts)
     search(header$$, posts);
-    mainBtn(parent, `<i class='bx bx-arrow-to-top'></i>`, () => {
+    scrollBtn(parent, `<i class='bx bx-arrow-to-top'></i>`, () => {
         scrollToTop();
     });
     auxBtn(parent, `<i class='bx bx-arrow-to-left'></i>`, () => {

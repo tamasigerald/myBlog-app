@@ -17,20 +17,20 @@ export const auxBtn = (parent, text, callback, props, propsArg) => {
     // btnPositionWrapper(btn$$);
     appendTo(parent, btn$$);
     
-    stickyBtn(btn$$);
+    stickyBackBtn(btn$$);
     window.addEventListener('scroll', () => {
-        stickyBtn(btn$$);
+        stickyBackBtn(btn$$);
     });
 }
 
 
-const stickyBtn = (btn) => {
+const stickyBackBtn = (btn) => {
     let y = window.scrollY;
     let defaultTop = 11.8;
-    if (y == 0) {
+    if (y == 0 || y < 100) {
         btn.style.setProperty(`top`, `${defaultTop}rem`)
     } 
     else if (y > 100) {
-        btn.style.setProperty(`top`, `${defaultTop-10.5}rem`)
+        btn.style.setProperty(`top`, `${defaultTop-10}rem`)
     }
 }

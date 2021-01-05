@@ -35,7 +35,6 @@ export const search = async (parent, posts) => {
 }
 
 const getPredicitons = (arr, parent, input, parentSearch) => {
-    console.log(arr);
     removeChildsIf(parent)
     let arrSearch = [];
     parent.style.display = 'block';

@@ -8,7 +8,6 @@ import { postCards } from "./_postCard";
 
 // Search result page
 export const searchResults = (parent, posts) => {
-    console.log(posts);
     const containerToRemove$$ = document.querySelector('.content__container');
     const btnToRemove$$ = document.querySelector('button');
     if (containerToRemove$$) {

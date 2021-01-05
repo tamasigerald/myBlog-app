@@ -1,8 +1,9 @@
 
 import { auxBtn } from "../components/_auxBtn";
 import { mainBtn } from "../components/_mainBtn";
+import { scrollBtn } from "../components/_scrollBtn";
 import { inputElements, logState, urlsToFetch } from "../utilities/_data";
-import { appendTo, createForm, createInput, fetchData, removeChildsIf, sectionTitle, sortDates } from "../utilities/_functions"
+import { appendTo, createForm, createInput, fetchData, removeChildsIf, scrollToTop, sectionTitle, sortDates } from "../utilities/_functions"
 import { router } from "../utilities/_router";
 
 
@@ -40,7 +41,6 @@ export const postPage = async (parent, props) => {
     appendTo(parent, header$$);
     appendTo(parent, container$$);
     let postComments = await getComments(props[0].id);
-    console.log(postComments);
     commentCard(postCommentsContainer$$, postComments);
     
     if (logState.state === true) {
@@ -51,9 +51,13 @@ export const postPage = async (parent, props) => {
     } else {
         postCommentsContainer$$.style.setProperty('padding-bottom', '0');
     }
+    scrollBtn(parent, `<i class='bx bx-arrow-to-top'></i>`, () => {
+        scrollToTop();
+    });
     auxBtn(parent, `<i class='bx bx-arrow-to-left'></i>`, () => {
         router.load('recents');
     })
+    
 }
 
 

@@ -1,9 +1,9 @@
-.aux__btn {
+.scroll__btn {
     @include flexCenter(row);
     position: fixed;
-    display: inline-flex;
-    // top: 11.8rem;
-    left: 0.5rem;
+
+    bottom: -4rem;
+    right: 1rem;
     border-radius: 50%;
     width: 3.5rem;
     height: 3.5rem;
@@ -17,9 +17,14 @@
     outline: 0;
     cursor: pointer;
     transition: all 0.3s;
-    transition: top 0.5s;
     &:hover {
         border-color: $orange;
         box-shadow: 0 0.5rem 1rem -0.4rem $orange;
     }
+}
+
+.scroll--show {
+    transition: bottom 0.5s;
+    bottom: 2rem;
+
 }
