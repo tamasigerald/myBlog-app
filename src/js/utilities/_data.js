@@ -12,17 +12,19 @@ let logState = {
 // API links
 
 
-const urlsToFetch = {
-    "users": "http://localhost:3030/users",
-    "posts": "http://localhost:3030/posts",
-    "comments": "http://localhost:3030/comments"
-}
-
 // const urlsToFetch = {
-//     "users": "https://gerald-myblog-api.herokuapp.com/users",
-//     "posts": "https://gerald-myblog-api.herokuapp.com/posts",
-//     "comments": "https://gerald-myblog-api.herokuapp.com/comments"
+//     "users": "http://localhost:3030/users",
+//     "posts": "http://localhost:3030/posts",
+//     "comments": "http://localhost:3030/comments"
 // }
+const baseUrl = process.env.BASE_URL;
+console.log("THE BASEURLK", baseUrl);
+
+const urlsToFetch = {
+    "users": baseUrl + "/users",
+    "posts": baseUrl + "/posts",
+    "comments": baseUrl + "/comments"
+}
 
 
 // Array of generates inputs
