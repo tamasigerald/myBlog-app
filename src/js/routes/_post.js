@@ -1,5 +1,6 @@
 
 import { auxBtn } from "../components/_auxBtn";
+import { editBtn } from "../components/_editBtn";
 import { mainBtn } from "../components/_mainBtn";
 import { scrollBtn } from "../components/_scrollBtn";
 import { inputElements, logState, urlsToFetch } from "../utilities/_data";
@@ -30,6 +31,17 @@ export const postPage = async (parent, props) => {
     <p>${props[1]}</p>`;
     const postCommentsContainer$$ = document.createElement('div');
     postCommentsContainer$$.classList.add('post__comments');
+    const postSocial$$ = document.createElement('div');
+    postSocial$$.classList.add('post__social');
+    for (let link in socialLinks) {
+        let linkContent = socialLinks[link];
+        const a$$ = document.createElement('a');
+        a$$.classList.add('social__link');
+        a$$.setAttribute('href', 'javascript:void(0)');
+        a$$.innerHTML = linkContent;
+        appendTo(postSocial$$, a$$);
+    }
+
     
     
     sectionTitle(header$$, `${post.title}`, 'header__title');
@@ -37,6 +49,7 @@ export const postPage = async (parent, props) => {
     appendTo(container$$, figure$$);
     appendTo(container$$, postContent$$);
     appendTo(container$$, postInfo$$);
+    appendTo(container$$, postSocial$$);
     appendTo(container$$, postCommentsContainer$$);
     appendTo(parent, header$$);
     appendTo(parent, container$$);
@@ -45,9 +58,14 @@ export const postPage = async (parent, props) => {
     
     if (logState.state === true) {
         createForm(postCommentsContainer$$, 'postComment');
-        mainBtn(container$$, 'submit', () =>{
+        mainBtn(container$$, `<i class='bx bx-comment-add'></i>`, () => {
             console.log('hey')
-        }, 'form', 'userForm')
+        }, 'form', 'userForm');
+        if (logState.user_name == props[1]) {
+            editBtn(postContent$$, `<i class='bx bxs-edit-alt'></i>`, () => {
+                console.log('hello');
+            });
+        }
     } else {
         postCommentsContainer$$.style.setProperty('padding-bottom', '0');
     }
@@ -110,4 +128,11 @@ const getComments = async (id) => {
     }
     sortDates(postComents);
     return postComents;
+}
+
+const socialLinks = {
+    "facebook": `<i class='bx bxl-facebook-circle' ></i>`,
+    "intagram": `<i class='bx bxl-instagram' ></i>`,
+    "twitter": `<i class='bx bxl-twitter' ></i>`,
+    "whatsapp": `<i class='bx bxl-whatsapp' ></i>`
 }

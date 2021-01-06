@@ -1,6 +1,7 @@
 import { mainBtn } from "../components/_mainBtn";
 import { urlsToFetch } from "../utilities/_data";
-import { appendTo, createForm, defaultInput, fetchData, inputIsGood, inputIsWrong, removeChildsIf, sectionTitle } from "../utilities/_functions";
+import { appendTo, createForm, defaultInput, fetchData, inputIsGood, inputIsWrong, postToApi, removeChildsIf, sectionTitle } from "../utilities/_functions";
+import { router } from "../utilities/_router";
 
 
 
@@ -136,29 +137,18 @@ const fnSignUp = async (form, users) => {
         "role": "blogger"
     }
     if (form.checkValidity()) {
-        console.log('form is valid');
-        const alert = await signUpMessage();
-        postToApi(newUser);
+        const alert = signUpMessage();
+        postToApi(newUser, urlsToFetch.users);
+        const thisTimeout = setTimeout(() => {
+            router.load('home');
+        }, 1200);
     } else {
-        console.log('form is invalid');
     }
-    console.log(newUser);
 }
 
-const signUpMessage = async () => {
+const signUpMessage = () => {
     alert('Welcome to myBlog App.\nDon\'t forget to sign In :)')
 
 }
 
-const postToApi = (element) => {
-    fetch(urlsToFetch.users, {
-            method: "POST",
-            body: JSON.stringify(element),
-            headers: {
-                "Content-type": "application/json; charset=UTF-8"
-            }
-        })
-        .then(response => response.json())
-        .then(json => console.log(json))
-        .catch(err => console.log(err))
-}
+

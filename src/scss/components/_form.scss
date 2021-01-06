@@ -9,6 +9,16 @@
 .form__input {
     @include generalInput();
 }
+.form__textarea {
+    @include generalInput();
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    text-align: left;
+    width: 100%;
+    &:last-of-type {
+        height: 35rem;
+    }
+}
 
 .form__icon {
     font-size: 5rem;
@@ -41,4 +51,12 @@
 .form__container {
     @include flexCenter(column);
     width: 90%;
+    @include screenMedium {
+        width: 80%;
+    }
+    @include screenLarge {
+        width: 70%;
+        margin: 0 auto;
+        // margin: 0 auto 200px auto;
+    }
 }

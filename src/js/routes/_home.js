@@ -13,7 +13,7 @@ export const homePage = async (parent) => {
     const header$$ = document.createElement('header');
     header$$.classList.add('content__header');
     let title;
-    logState.state === false ? title = `Hi, <span>guest</span>` : title = `Hi, <span>${logState.user}</span>`;
+    logState.state === false ? title = `Hi, <span>guest</span>` : title = `Hi, <span>${logState.user_name}</span>`;
     const container$$ = document.createElement('article');
     container$$.classList.add('content__container');
     sectionTitle(header$$, title);
@@ -72,7 +72,8 @@ const showTags = (parent, tags, posts) => {
             let postWithTag = getPostByTag(element, posts);
             const main$$ = document.querySelector('.app__content');
             // tagPosts(main$$, postWithTag, element);
-            router.load('tagPosts', postWithTag, element)
+            let props = [postWithTag, element];
+            router.load('tagPosts', props)
         });
     });
     appendTo(parent, h3$$);

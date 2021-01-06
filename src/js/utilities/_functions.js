@@ -129,20 +129,51 @@ export const createForm = (parentNode, props) => {
                     icon$$.classList.add('form__icon');
                     appendTo(createForm$$, icon$$);
                 }
-                const elClass = 'form__input';
-                const spClass = 'input--base';
+                
                 appendTo(parentNode, createForm$$);
-                createInput(createForm$$, form, elClass, spClass);
+                if (props != 'addPost' && props != 'postComment') {
+                    const elClass = 'form__input';
+                    let spClass = 'input--base';
+                    createInput(createForm$$, form, elClass, spClass);
+                }
+                if (props == 'addPost') {
+                    const elClass = 'form__textarea';
+                    let spClass = 'input--base';
+                    createTextarea(createForm$$, form, elClass, spClass);
+                }
+                if (props == 'postComment') {
+                    const elClass = 'form__textarea';
+                    let spClass = 'input--base';
+                    createTextarea(createForm$$, form, elClass, spClass);
+                }
             }
         }
     }
 }
+
+
 
 // Creates inputs from array
 export const createInput = (parent, arr, elClass, spClass) => {
     for (let input in arr) {
         input = arr[input];
         const createInput$$ = document.createElement('input');
+        createInput$$.classList.add(`${elClass}`);
+        if (spClass) {
+            createInput$$.classList.add(`${spClass}`);
+        }
+        for (const attribute in input) {
+            const attributeValue = input[attribute];
+            createInput$$.setAttribute(`${attribute}`, `${attributeValue}`)
+        }
+        appendTo(parent, createInput$$);
+    }
+}
+
+export const createTextarea = (parent, arr, elClass, spClass) => {
+    for (let input in arr) {
+        input = arr[input];
+        const createInput$$ = document.createElement('textarea');
         createInput$$.classList.add(`${elClass}`);
         if (spClass) {
             createInput$$.classList.add(`${spClass}`);
@@ -162,4 +193,18 @@ export const fnSignOut = async () => {
     logState.user = '';
     window.confirm('You have been succesfully logged out!')
     router.load('home');
+}
+
+
+export const postToApi = (element, url) => {
+    fetch(url, {
+            method: "POST",
+            body: JSON.stringify(element),
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
+            }
+        })
+        .then(response => response.json())
+        .then(json => console.log(json))
+        .catch(err => console.log(err))
 }

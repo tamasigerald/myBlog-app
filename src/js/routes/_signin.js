@@ -35,7 +35,8 @@ const fnSignIn = (users) => {
         if (user.user_name == usrInput$$.value && user.password == pswInput$$.value) {
             console.log('right');
             logState.state = true;
-            logState.user = user.user_name;
+            logState.user_name = user.user_name;
+            logState.user_id = user.id;
             inputIsGood(usrInput$$);
             inputIsGood(pswInput$$);
             pswInput$$.setCustomValidity('');

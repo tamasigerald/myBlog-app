@@ -42,6 +42,15 @@
       "email": "ntrafford1@webeden.co.uk",
       "gender": "Female",
       "role": "blogger"
+    },
+    {
+      "id": 4,
+      "user_name": "test",
+      "password": "11111111",
+      "first_name": "test",
+      "last_name": "test",
+      "email": "test@test.com",
+      "role": "blogger"
     }
   ],
   "posts": [

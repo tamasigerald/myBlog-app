@@ -5,6 +5,9 @@
     height: 100%;
     width: 90%;
     z-index: 999;
+
+
+
     .content__header {
         @include flexCenter(column);
         height: 100px;
@@ -14,12 +17,18 @@
         .header__search__container {
             @include flexCenter(column);
             width: 100%;
-            
+            @include screenSmall {
+                width: 80%;
+            }
+            @include screenMedium {
+                width: 70%;
+            }
         }
         
     }
     .header__title {
         @include generalTitle();
+        // width: 100%;
         span {
             font-weight: $w_regular;
             transition: all 0.5s;
@@ -48,6 +57,17 @@
         @include flexCenter(column);
         margin: 110px 0 90px 0;
         width: 100%;
+        max-width: 1300px;
+
+        @include screenLarge {
+          flex-direction: row;
+          justify-content: space-between;
+          // align-items: flex-start;
+          flex-wrap: wrap;
+          width: 90%;
+          margin-top: 130px;
+          text-align: center;
+        }
         // position: relative;
     }
 }
@@ -59,6 +79,7 @@
     line-height: 7.5rem;
     margin-bottom: 2rem;
     padding: 0 2rem;
+    width: 100%;
     cursor: default;
     & span {
         font-weight: $w_bold;
@@ -81,6 +102,8 @@
 }
 
 .app__subtitle {
+  text-align: center;
+    width: 100%;
     color: $gray;
     font-size: 1.2rem;
     font-weight: $w_regular;

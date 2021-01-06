@@ -4,7 +4,8 @@ import { router } from "./_router";
 // Log state
 let logState = {
     "state": false,
-    "user": ""
+    "user_name": "",
+    "user_id": ""
 };
 
 
@@ -12,10 +13,17 @@ let logState = {
 
 
 const urlsToFetch = {
-    "users": "https://gerald-myblog-api.herokuapp.com/users",
-    "posts": "https://gerald-myblog-api.herokuapp.com/posts",
-    "comments": "https://gerald-myblog-api.herokuapp.com/comments"
+    "users": "http://localhost:3030/users",
+    "posts": "http://localhost:3030/posts",
+    "comments": "http://localhost:3030/comments"
 }
+
+// const urlsToFetch = {
+//     "users": "https://gerald-myblog-api.herokuapp.com/users",
+//     "posts": "https://gerald-myblog-api.herokuapp.com/posts",
+//     "comments": "https://gerald-myblog-api.herokuapp.com/comments"
+// }
+
 
 // Array of generates inputs
 const inputElements = {
@@ -88,12 +96,25 @@ const inputElements = {
     },
     "postComment": {
         "comment": {
-            "type": "text",
             "placeholder": "your comment",
             "name": "comment",
             "data-function": "comment",
             "required": ""
         }
+    },
+    "addPost": {
+        "title": {
+            "placeholder": "title",
+            "name": "title",
+            "data-function": "title",
+            "required": ""
+        },
+        "content": {
+            "placeholder": "content",
+            "name": "content",
+            "data-function": "content",
+            "required": ""
+        },
     }
 
 }
@@ -104,11 +125,15 @@ const inputElements = {
 let links = {
     "logged": [{
             "name": "add post",
-            "fn": ""
+            "fn": () => {
+                router.load('add')
+            }
         },
         {
             "name": "my account",
-            "fn": ""
+            "fn": () => {
+                router.load('account')
+            }
         },
         {
             "name": "sign Out",

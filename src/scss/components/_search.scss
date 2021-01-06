@@ -14,11 +14,12 @@
         border-color: $orange;
         box-shadow: 0 0.5rem 1.2rem -0.4rem $orange;
     }
+    @include screenMedium {
+        height: 3rem;
+    }
+    
 }
 
-.header__search__container {
-    position: relative;
-}
 
 .header__preditions {
     position: absolute;

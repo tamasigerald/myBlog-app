@@ -5,6 +5,7 @@ import { signInForm } from "../routes/_signin";
 import { signUpForm } from "../routes/_signup";
 import { tagPosts } from "../routes/_tagPost";
 import { postPage } from "../routes/_post";
+import { addPost } from "../routes/_add";
 
 
 
@@ -37,6 +38,10 @@ export const routes = {
     post: {
         path: "/",
         template: postPage,
+    },
+    add: {
+        path: "/",
+        template: addPost,
     },
     edit: {
         path: "/",

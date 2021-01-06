@@ -1,18 +1,18 @@
-.aux__btn {
+.edit__btn {
     @include flexCenter(row);
-    position: fixed;
+    position: absolute;
     display: inline-flex;
-    bottom: 2rem;
-    left: 1rem;
-    border-radius: 50%;
-    width: 3.8rem;
-    height: 3.8rem;
+    top: -1.5rem;
+    right: 1rem;
+    border-radius: 25px;
+    width: 5.5rem;
+    height: 3rem;
     // padding: 1rem 2.5rem;
-    border: 1px solid $black;
+    border: 1px solid $orange;
     background-color: $white;
     color: $black;
     font-family: 'Poppins';
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: $w-thin;
     outline: 0;
     cursor: pointer;

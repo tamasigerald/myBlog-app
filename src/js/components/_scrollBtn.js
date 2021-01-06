@@ -1,6 +1,6 @@
 import {appendTo} from '../utilities/_functions'
 
-// The main button
+// The scroll button
 export const scrollBtn = (parent, text, callback, props, propsArg) => {
     const btn$$ = document.createElement('button');
     btn$$.classList.add('scroll__btn');

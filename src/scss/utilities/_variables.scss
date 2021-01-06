@@ -11,6 +11,33 @@ $w_regular: 400;
 $w_bold: 600;
 
 
+$s_small: 430px;
+$s_medium: 620px;
+$s_large: 790px;
+$s_desktop: 1200px;
+
+@mixin screenSmall () {
+    @media screen and (min-width: $s_small) {
+        @content;
+    }
+}
+@mixin screenMedium () {
+    @media screen and (min-width: $s_medium) {
+        @content;
+    }
+}
+@mixin screenLarge () {
+    @media screen and (min-width: $s_large) {
+        @content;
+    }
+}
+@mixin screenDesktop () {
+    @media screen and (min-width: $s_desktop) {
+        @content;
+    }
+}
+
+
 @mixin  flexCenter ($direction) {
     display: flex;
     justify-content: center;
@@ -22,15 +49,25 @@ $w_bold: 600;
     border-radius: 45px;
     height: 3.5rem;
     width: 80%;
+    max-width: 600px;
     padding: 1rem;
     border: 1px solid;
     outline: 0;
     margin-top: 2rem;
     cursor: pointer;
     text-align: center;
+    @include screenLarge(){
+        height: 3rem;
+    }
+    @include screenDesktop() {
+        height: 2.8rem;
+        width: 70%;
+    }
+
 }
 
 @mixin generalTitle {
+    width: 100%;
     margin-top: 2rem;
     font-size: 2.5rem;
     font-weight: $w_thin;

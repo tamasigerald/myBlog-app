@@ -5,9 +5,23 @@
 
 html, body {
     font-size: 10px;
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serifs;
     background-color: $white;
     color: $black;
+    @include screenSmall {
+
+    }
+    @include screenMedium {
+        font-size: 11px;
+        
+    }
+    @include screenLarge {
+        font-size: 13px;
+        
+    } 
+    @include screenDesktop {
+        // font-size: 14px;
+    }
 }
 
 #app {
