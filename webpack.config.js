@@ -4,8 +4,11 @@ const dotenv = require('dotenv').config({
     path: path.join(__dirname, '.env')
 });
 
+
 module.exports = env => {
     console.log("The ENV",env);
+
+    console.log(dotenv.parsed.BASE_URL)
     return {
         mode: 'development', // set mode option, 'development' or 'production'
         entry: './src/app.js',
@@ -29,7 +32,10 @@ module.exports = env => {
         devtool: 'source-map',
         plugins: [
             new webpack.DefinePlugin({
-                "process.env": dotenv.parsed
+                // "process.env": JSON.stringifydotenv.parsed,
+                'process.env': {
+                    BASE_URL: JSON.stringify(dotenv.parsed.BASE_URL)
+                }
             }),
         ],
     }
