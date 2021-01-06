@@ -1,7 +1,7 @@
 import './scss/main.scss'
 import {createHeader} from './js/layout/_header';
 import {createMain} from './js/layout/_main';
-import { router } from './js/utilities/_router';
+// import { router } from './js/utilities/_router';
 
 
 // MAIN APP HANDLE
