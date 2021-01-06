@@ -11,15 +11,7 @@ let logState = {
 
 // API links
 
-
-// const urlsToFetch = {
-//     "users": "http://localhost:3030/users",
-//     "posts": "http://localhost:3030/posts",
-//     "comments": "http://localhost:3030/comments"
-// }
-const baseUrl = process.env.BASE_URL
-console.log("THE BASEURLK", baseUrl);
-
+const baseUrl = process.env.BASE_URL;
 const urlsToFetch = {
     "users": `${baseUrl}/users`,
     "posts": `${baseUrl}/posts`,

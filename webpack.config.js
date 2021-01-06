@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const dotenv = require('dotenv').config({
     path: path.join(__dirname, '.env')
 });
+const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 
 
 module.exports = env => {
@@ -17,7 +18,8 @@ module.exports = env => {
             filename: "bundle.js"
         },
         module: {
-            rules: [{
+            rules: [
+                {
                 test: /\.s[ac]ss$/i,
                 use: [
                     // Creates `style` nodes from JS strings
@@ -26,8 +28,14 @@ module.exports = env => {
                     "css-loader",
                     // Compiles Sass to CSS
                     "sass-loader",
-                ],
-            }, ],
+                ],},
+                {
+                    test: /\.(gif|png|jpe?g|svg)$/i,
+                    use: [
+                        'file-loader',
+                    ],
+                }
+         ],
         },
         devtool: 'source-map',
         plugins: [
@@ -36,6 +44,31 @@ module.exports = env => {
                 'process.env': {
                     BASE_URL: JSON.stringify(dotenv.parsed.BASE_URL)
                 }
+            }),
+            new ImageMinimizerPlugin({
+                minimizerOptions: {
+                    // Lossless optimization with custom option
+                    // Feel free to experiment with options for better result for you
+                    plugins: [
+                        ['gifsicle', {
+                            interlaced: true
+                        }],
+                        ['jpegtran', {
+                            progressive: true
+                        }],
+                        ['optipng', {
+                            optimizationLevel: 5
+                        }],
+                        [
+                            'svgo',
+                            {
+                                plugins: [{
+                                    removeViewBox: false,
+                                }, ],
+                            },
+                        ],
+                    ],
+                },
             }),
         ],
     }

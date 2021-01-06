@@ -27,5 +27,5 @@ html, body {
 #app {
     @include flexCenter(column);
     overflow: hidden;
-    width: 100vw;
+    // width: 100vw;
 }

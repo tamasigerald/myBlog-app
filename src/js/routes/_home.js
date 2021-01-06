@@ -4,12 +4,19 @@ import {mainBtn} from '../components/_mainBtn';
 import {search} from '../components/_search';
 import {postCards} from '../components/_postCard';
 import { router } from '../utilities/_router';
+import { loadingScreen, removeLoading } from '../components/_loading';
 
 
 
 export const homePage = async (parent) => {
+    let isLoading = false;
+    loadingScreen(parent);
     let posts = await fetchData(urlsToFetch.posts);
-    removeChildsIf(parent);
+    // setTimeout(() => {
+    //     console.log('hey');
+    // }, 5000);
+    removeLoading();
+    // removeChildsIf(parent);
     const header$$ = document.createElement('header');
     header$$.classList.add('content__header');
     let title;
