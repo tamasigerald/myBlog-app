@@ -1,9 +1,12 @@
 .app__header {
     @include flexCenter(row);
-    position: relative;
+    position: fixed;
+    background-color: $white;
+    top: 0;
     height: 100px;
     width: 100%;
     border-bottom: 1px solid $gray;
+    z-index: 2;
 
     .header__nav {
         @include flexCenter(row);

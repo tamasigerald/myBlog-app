@@ -1,3 +1,7 @@
+import {
+    loadingScreen,
+    removeLoadingWrapper
+} from '../components/_loading';
 import {routes} from './_routes';
 
 export class Router {
@@ -36,6 +40,15 @@ export class Router {
         } = paths[page] || paths.error;
         const content$$ = document.querySelector('.app__content');
         template(content$$, props);
+        // if (page != 'landing') {
+        //     loadingScreen();
+        // } else {
+        //     console.log('no')
+        // }
+            // removeLoadingWrapper(content$$);
+        // setTimeout(() => {
+            
+        // }, 100);
         window.history.replaceState(null, null, path);
     }
 }

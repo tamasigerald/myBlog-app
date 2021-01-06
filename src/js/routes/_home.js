@@ -9,10 +9,10 @@ import { loadingScreen, removeLoading } from '../components/_loading';
 
 
 export const homePage = async (parent) => {
+    loadingScreen();
     let isLoaded = false;
-    loadingScreen(parent);
     let posts = await fetchData(urlsToFetch.posts);
-    removeLoading(isLoaded);
+    removeChildsIf(parent);
     const header$$ = document.createElement('header');
     header$$.classList.add('content__header');
     let title;
@@ -27,6 +27,7 @@ export const homePage = async (parent) => {
     mainBtn(container$$, 'recent posts', () => {
         router.load('recents', posts);
     })
+    removeLoading(isLoaded);
 }
 
 const postTags = (parent, posts) => {

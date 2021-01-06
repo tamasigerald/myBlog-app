@@ -1,6 +1,7 @@
 import './scss/main.scss'
 import {createHeader} from './js/layout/_header';
 import {createMain} from './js/layout/_main';
+import { loadingScreen } from './js/components/_loading';
 // import { router } from './js/utilities/_router';
 
 
@@ -11,6 +12,7 @@ const app = () => {
     // Create main structure
     createHeader(app$$);
     createMain(app$$);
+    // loadingScreen();
 }
 app();
 

@@ -1,6 +1,7 @@
 import {resizeContentWrapper, appendTo, removeClass} from '../utilities/_functions';
 import {logState} from '../utilities/_data';
 import { router } from '../utilities/_router';
+import { removeLoading } from '../components/_loading';
 
 
 // Main content
@@ -21,6 +22,29 @@ const createMain = (parent) => {
     //     removeClass(burger$$, 'is-expanded');
     //     // logState.state == false ? home(main$$) : loggedView(main$$);;
     // })
+
+    // const jejeje = document.querySelector('.app__content');
+    // console.log(jejeje);
+
+    // let config = {
+    //     childList: true
+    // };
+
+    // const callbackJEJEJE = (mutationList, observer) => {
+    //     const targetEl = document.querySelector('.content__container');
+    //     let isLoaded = false;
+    //     if (targetEl) {
+    //         console.log('element created')
+    //         removeLoading(isLoaded);
+    //     }
+    // }
+
+    // let observer = new MutationObserver(callbackJEJEJE);
+
+    // observer.observe(jejeje, config);
+
+
+
 }
 
 

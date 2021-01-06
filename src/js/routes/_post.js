@@ -1,7 +1,7 @@
 
 import { auxBtn } from "../components/_auxBtn";
 import { editBtn } from "../components/_editBtn";
-import { removeLoading } from "../components/_loading";
+import { loadingScreen, removeLoading } from "../components/_loading";
 import { mainBtn } from "../components/_mainBtn";
 import { scrollBtn } from "../components/_scrollBtn";
 import { inputElements, logState, urlsToFetch } from "../utilities/_data";
@@ -10,15 +10,13 @@ import { router } from "../utilities/_router";
 
 
 export const postPage = async (parent, props) => {
-    let isLoaded = false;
-    loadingScreen(parent);
+    loadingScreen();
     let post = await fetchData(`${urlsToFetch.posts}/${props[0].id}`);
-    removeLoading(isLoaded);
+    removeChildsIf(parent);
     const header$$ = document.createElement('header');
     header$$.classList.add('content__header');
     const container$$ = document.createElement('article');
     container$$.classList.add('content__container');
-
     const figure$$ = document.createElement('figure');
     figure$$.classList.add('figure')
     const img$$ = document.createElement('img');
@@ -78,7 +76,7 @@ export const postPage = async (parent, props) => {
     auxBtn(parent, `<i class='bx bx-arrow-to-left'></i>`, () => {
         router.load('recents');
     })
-    
+    removeLoading();
 }
 
 

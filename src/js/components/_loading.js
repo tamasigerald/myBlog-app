@@ -3,7 +3,9 @@ import { appendTo, removeChildsIf, removeElement, resizeContentWrapper } from ".
 
 export const loadingScreen = (parent) => {
     const app$$ = document.querySelector('#app');
-    removeChildsIf(parent);
+    if (parent){
+        removeChildsIf(parent);
+    }
     const container$$ = document.createElement('div');
     container$$.classList.add('loading');
     for (let index = 0; index < 5; index++) {
@@ -17,9 +19,32 @@ export const loadingScreen = (parent) => {
 
 
 export const removeLoading = (isLoaded) => {
-    const loading$$ = document.querySelector('.loading');
     isLoaded = true;
-    if (isLoaded) {
-        removeElement(loading$$);
+    if (isLoaded == true) {
+        const loading$$ = document.querySelector('.loading');
+        if (loading$$) {
+            removeElement(loading$$);
+        }
     }
 }
+
+// export const removeLoadingWrapper = (element) => {
+//     const jejeje = document.querySelector('.app__content');
+
+//     let config = {
+//         childList: true,
+//         subtree: true
+//     };
+
+//     const callbackJEJEJE = (mutationList, observer) => {
+//         // const targetEl = document.querySelector('.content__container');
+//         let isLoaded = false;
+//         if (jejeje) {
+//             removeLoading(isLoaded);
+//         }
+//     }
+
+//     let observer = new MutationObserver(callbackJEJEJE);
+
+//     observer.observe(jejeje, config);
+// }

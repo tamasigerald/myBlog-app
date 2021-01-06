@@ -1,3 +1,4 @@
+import { removeLoading } from "../components/_loading";
 import { mainBtn } from "../components/_mainBtn";
 import { logState, urlsToFetch } from "../utilities/_data";
 import { appendTo, createForm, fetchData, postToApi, removeChildsIf, sectionTitle } from "../utilities/_functions";
@@ -6,6 +7,7 @@ import { router } from "../utilities/_router";
 
 
 export const addPost = () => {
+    let isValid = false;
     const main$$ = document.querySelector('.app__content');
     removeChildsIf(main$$);
     const header$$ = document.createElement('header');
@@ -19,6 +21,9 @@ export const addPost = () => {
     }, 'form', 'userForm')
     appendTo(main$$, header$$);
     appendTo(main$$, container$$);
+    setTimeout(() => {
+        removeLoading(isValid);
+    }, 10);
 }
 
 const postPost = async () => {

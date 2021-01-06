@@ -1,3 +1,4 @@
+import { removeLoading } from "../components/_loading";
 import { mainBtn } from "../components/_mainBtn";
 import { urlsToFetch } from "../utilities/_data";
 import { appendTo, createForm, defaultInput, fetchData, inputIsGood, inputIsWrong, postToApi, removeChildsIf, sectionTitle } from "../utilities/_functions";
@@ -7,6 +8,7 @@ import { router } from "../utilities/_router";
 
 // Sign up page
 export const signUpForm = async () => {
+    let isLoaded = false;
     const main$$ = document.querySelector('.app__content');
     removeChildsIf(main$$);
     const container$$ = document.createElement('article');
@@ -30,6 +32,7 @@ export const signUpForm = async () => {
     signUpCheckPasswords(form);
     signUpCheckUserName(form, userNames);
     signUpCheckEmail(form, emails);
+    removeLoading(isLoaded);
     mainBtn(main$$, `sign Up`, () => {
         form.reportValidity();
         fnSignUp(form, users);

@@ -1,6 +1,7 @@
 import {appendTo, toggleClass, removeAllChildNodes, resizeContentWrapper, removeClass} from '../utilities/_functions';
 import {logState, links} from '../utilities/_data';
 import { router } from '../utilities/_router';
+import { loadingScreen } from './_loading';
 
 
 // NavBar

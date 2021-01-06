@@ -1,5 +1,5 @@
 import { urlsToFetch } from "../utilities/_data";
-import { appendTo, fetchData } from "../utilities/_functions";
+import { appendTo, fetchData, removeElement } from "../utilities/_functions";
 import { router } from "../utilities/_router";
 
 
@@ -19,6 +19,10 @@ export const postCards = async (parent, posts) => {
             img$$.classList.add('figure__img');
             img$$.setAttribute('loading', 'lazy');
             img$$.src = post.img;
+            imgLoading(figure$$);
+            img$$.addEventListener('load', () => {
+                removeImgLoading();
+            })
             const caption$$ = document.createElement('div');
             caption$$.classList.add('card__caption');
             const title$$ = document.createElement('h3');
@@ -51,3 +55,24 @@ export const postCards = async (parent, posts) => {
         }
     )
 }
+
+
+const imgLoading = (image) => {
+    const container$$ = document.createElement('div');
+    container$$.classList.add('loading__img');
+    for (let index = 0; index < 5; index++) {
+        const dot$$ = document.createElement('div');
+        dot$$.classList.add('dot');
+        appendTo(container$$, dot$$);
+    }
+    appendTo(image, container$$)
+}
+
+export const removeImgLoading = () => {
+    const loading$$ = document.querySelector('.loading__img');
+    let isLoaded = true;
+    if (isLoaded) {
+        removeElement(loading$$);
+    }
+}
+

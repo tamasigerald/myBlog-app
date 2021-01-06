@@ -1,3 +1,4 @@
+import { removeLoading } from "../components/_loading";
 import { mainBtn } from "../components/_mainBtn";
 import { logState, urlsToFetch } from "../utilities/_data";
 import { appendTo, createForm, defaultInput, inputIsGood, removeChildsIf, fetchData, sectionTitle, inputIsWrong } from "../utilities/_functions";
@@ -14,7 +15,9 @@ export const signInForm = async () => {
     sectionTitle(container$$, 'sign In', 'form__title');
     createForm(container$$, 'signIn');
     appendTo(main$$, container$$);
+    let isLoaded = false;
     let users = await fetchData(urlsToFetch.users);
+    removeLoading(isLoaded);
     mainBtn(main$$, `sign In`, () => {
         const form = document.querySelector('#userForm');
         form.reportValidity();
