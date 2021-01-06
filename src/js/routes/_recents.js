@@ -1,4 +1,5 @@
 import { auxBtn } from "../components/_auxBtn";
+import { removeLoading } from "../components/_loading";
 import { mainBtn } from "../components/_mainBtn";
 import { postCards } from "../components/_postCard";
 import { scrollBtn } from "../components/_scrollBtn";
@@ -20,7 +21,10 @@ import { router } from "../utilities/_router";
 // Recent posts page
 export const recentPosts = async (parent, posts) => {
     if (!posts) {
+        let isLoaded = false;
+        loadingScreen(parent);
         posts = await fetchData(urlsToFetch.posts);
+        removeLoading(isLoaded);
     }
     sortDates(posts);
     removeChildsIf(parent);

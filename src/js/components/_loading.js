@@ -16,7 +16,7 @@ export const loadingScreen = (parent) => {
 }
 
 
-export const removeLoading = () => {
+export const removeLoading = (isLoaded) => {
     const loading$$ = document.querySelector('.loading');
     let isLoaded = true;
     if (isLoaded) {

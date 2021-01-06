@@ -1,6 +1,7 @@
 
 import { auxBtn } from "../components/_auxBtn";
 import { editBtn } from "../components/_editBtn";
+import { removeLoading } from "../components/_loading";
 import { mainBtn } from "../components/_mainBtn";
 import { scrollBtn } from "../components/_scrollBtn";
 import { inputElements, logState, urlsToFetch } from "../utilities/_data";
@@ -9,8 +10,10 @@ import { router } from "../utilities/_router";
 
 
 export const postPage = async (parent, props) => {
+    let isLoaded = false;
+    loadingScreen(parent);
     let post = await fetchData(`${urlsToFetch.posts}/${props[0].id}`);
-    removeChildsIf(parent);
+    removeLoading(isLoaded);
     const header$$ = document.createElement('header');
     header$$.classList.add('content__header');
     const container$$ = document.createElement('article');

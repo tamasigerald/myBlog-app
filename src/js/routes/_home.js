@@ -9,14 +9,10 @@ import { loadingScreen, removeLoading } from '../components/_loading';
 
 
 export const homePage = async (parent) => {
-    let isLoading = false;
+    let isLoaded = false;
     loadingScreen(parent);
     let posts = await fetchData(urlsToFetch.posts);
-    // setTimeout(() => {
-    //     console.log('hey');
-    // }, 5000);
-    removeLoading();
-    // removeChildsIf(parent);
+    removeLoading(isLoaded);
     const header$$ = document.createElement('header');
     header$$.classList.add('content__header');
     let title;
