@@ -17,13 +17,13 @@ let logState = {
 //     "posts": "http://localhost:3030/posts",
 //     "comments": "http://localhost:3030/comments"
 // }
-const baseUrl = process.env.BASE_URL;
+const baseUrl = {"url": process.env.BASE_URL};
 console.log("THE BASEURLK", baseUrl);
 
 const urlsToFetch = {
-    "users": baseUrl + "/users",
-    "posts": baseUrl + "/posts",
-    "comments": baseUrl + "/comments"
+    "users": `${baseUrl[url]}/users`,
+    "posts": `${baseUrl[url]}/posts`,
+    "comments": `${baseUrl[url]}/comments`
 }
 
 
