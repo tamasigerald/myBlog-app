@@ -6,6 +6,7 @@ import { signUpForm } from "../routes/_signup";
 import { tagPosts } from "../routes/_tagPost";
 import { postPage } from "../routes/_post";
 import { addPost } from "../routes/_add";
+import { editPost } from "../routes/_edit";
 
 
 
@@ -45,7 +46,7 @@ export const routes = {
     },
     edit: {
         path: "/",
-        // template: homePage,
+        template: editPost,
     },
     account: {
         path: "/",

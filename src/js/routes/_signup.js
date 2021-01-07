@@ -20,9 +20,7 @@ export const signUpForm = async () => {
     // let posts = await fetchData(urlsToFetch[1].url);
 
     const form = document.querySelector('#userForm');
-    console.log(form);
     let userNames = [];
-    console.log(userNames);
     let emails = [];
     for (let user in users) {
         user = users[user];

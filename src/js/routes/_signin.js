@@ -27,7 +27,6 @@ export const signInForm = async () => {
 
 const fnSignIn = (users) => {
     const inputs$$ = document.querySelectorAll('.form__input');
-    console.log(users);
     const usrInput$$ = inputs$$[0];
     const pswInput$$ = inputs$$[1];
     pswInput$$.addEventListener('input', () => {
@@ -36,7 +35,6 @@ const fnSignIn = (users) => {
     for (let user in users) {
         user = users[user];
         if (user.user_name == usrInput$$.value && user.password == pswInput$$.value) {
-            console.log('right');
             logState.state = true;
             logState.user_name = user.user_name;
             logState.user_id = user.id;
@@ -48,7 +46,6 @@ const fnSignIn = (users) => {
             }, 1200);
             return
         } else if (user.user_name == usrInput$$.value && user.password != pswInput$$.value) {
-            console.log('incorrect password');
             inputIsWrong(pswInput$$);
             pswInput$$.setCustomValidity('Incorrect password!');
         }

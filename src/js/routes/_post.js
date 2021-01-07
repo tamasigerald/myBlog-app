@@ -7,9 +7,11 @@ import { scrollBtn } from "../components/_scrollBtn";
 import { inputElements, logState, urlsToFetch } from "../utilities/_data";
 import { appendTo, createForm, createInput, fetchData, removeChildsIf, scrollToTop, sectionTitle, sortDates } from "../utilities/_functions"
 import { router } from "../utilities/_router";
+import { editPost } from "./_edit";
 
 
 export const postPage = async (parent, props) => {
+    console.log(props);
     loadingScreen();
     let post = await fetchData(`${urlsToFetch.posts}/${props[0].id}`);
     removeChildsIf(parent);
@@ -64,7 +66,7 @@ export const postPage = async (parent, props) => {
         }, 'form', 'userForm');
         if (logState.user_name == props[1]) {
             editBtn(postContent$$, `<i class='bx bxs-edit-alt'></i>`, () => {
-                console.log('hello');
+                router.load('edit', props);
             });
         }
     } else {

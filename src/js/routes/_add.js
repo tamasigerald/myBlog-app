@@ -7,7 +7,6 @@ import { router } from "../utilities/_router";
 
 
 export const addPost = () => {
-    let isValid = false;
     const main$$ = document.querySelector('.app__content');
     removeChildsIf(main$$);
     const header$$ = document.createElement('header');
@@ -21,9 +20,6 @@ export const addPost = () => {
     }, 'form', 'userForm')
     appendTo(main$$, header$$);
     appendTo(main$$, container$$);
-    setTimeout(() => {
-        removeLoading(isValid);
-    }, 10);
 }
 
 const postPost = async () => {
