@@ -7,6 +7,7 @@ import { tagPosts } from "../routes/_tagPost";
 import { postPage } from "../routes/_post";
 import { addPost } from "../routes/_add";
 import { editPost } from "../routes/_edit";
+import { myAccount } from "../routes/_account";
 
 
 
@@ -50,6 +51,6 @@ export const routes = {
     },
     account: {
         path: "/",
-        // template: homePage,
+        template: myAccount,
     },
 }

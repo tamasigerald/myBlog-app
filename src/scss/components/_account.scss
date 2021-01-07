@@ -1,0 +1,15 @@
+.acc {
+    &__wrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+        height: 28rem;
+    }
+    &__element {
+        font-size: 2rem;
+        font-weight: $w_light;
+    }
+    
+}

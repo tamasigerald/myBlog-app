@@ -5,13 +5,12 @@ import { loadingScreen, removeLoading } from "../components/_loading";
 import { mainBtn } from "../components/_mainBtn";
 import { scrollBtn } from "../components/_scrollBtn";
 import { inputElements, logState, urlsToFetch } from "../utilities/_data";
-import { appendTo, createForm, createInput, fetchData, removeChildsIf, scrollToTop, sectionTitle, sortDates } from "../utilities/_functions"
+import { appendTo, createForm, createInput, fetchData, postToApi, removeChildsIf, scrollToTop, sectionTitle, sortDates } from "../utilities/_functions"
 import { router } from "../utilities/_router";
 import { editPost } from "./_edit";
 
 
 export const postPage = async (parent, props) => {
-    console.log(props);
     loadingScreen();
     let post = await fetchData(`${urlsToFetch.posts}/${props[0].id}`);
     removeChildsIf(parent);
@@ -62,7 +61,7 @@ export const postPage = async (parent, props) => {
     if (logState.state === true) {
         createForm(postCommentsContainer$$, 'postComment');
         mainBtn(container$$, `<i class='bx bx-comment-add'></i>`, () => {
-            console.log('hey')
+            postComment(props[0])
         }, 'form', 'userForm');
         if (logState.user_name == props[1]) {
             editBtn(postContent$$, `<i class='bx bxs-edit-alt'></i>`, () => {
@@ -138,4 +137,30 @@ const socialLinks = {
     "intagram": `<i class='bx bxl-instagram' ></i>`,
     "twitter": `<i class='bx bxl-twitter' ></i>`,
     "whatsapp": `<i class='bx bxl-whatsapp' ></i>`
+}
+
+const postComment = async (post) => {
+    const form$$ = document.querySelector('#userForm');
+    const comment$$ = document.querySelector('[data-function="comment"]');
+
+    let today = new Date().toLocaleDateString('en-US');
+    let hour = new Date().toLocaleTimeString('en-US', {
+        hour: "numeric",
+        minute: "numeric"
+    });
+
+    
+
+    const newComment = {
+        "id": 0,
+        "post": post.id,
+        "user": logState.user_id,
+        "content": `${comment$$.value}`,
+        "created_date": `${today}`,
+        "created_time": `${hour}`
+    }
+    if (form$$.checkValidity()) {
+        alert('Post submitted');
+        postToApi(newComment, urlsToFetch.comments);
+    } else {}
 }

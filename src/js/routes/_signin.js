@@ -46,8 +46,14 @@ const fnSignIn = (users) => {
             }, 1200);
             return
         } else if (user.user_name == usrInput$$.value && user.password != pswInput$$.value) {
+            // inputIsWrong(pswInput$$);
             inputIsWrong(pswInput$$);
             pswInput$$.setCustomValidity('Incorrect password!');
+        } else if (user.user_name != usrInput$$.value) {
+            inputIsWrong(usrInput$$);
+            usrInput$$.addEventListener('input', () => {
+                defaultInput(usrInput$$);
+            })
         }
     }
 
